@@ -5,6 +5,7 @@ const swaggerDocument = require('../common/swagger/init.swagger.js');
 
 
 const userRoutes = require('../routes/admin/user.routes');
+const searchRoutes = require('../routes/system/search.routes');
 const productRoutes = require('../routes/system/product.routes');
 const newandeventRoutes = require('../routes/system/newandevent.routes');
 const quotepriceRoutes = require('../routes/system/quoteprice.routes');
@@ -14,6 +15,7 @@ const otpRoutes = require('../routes/send-email/otp.routes');
 const templateDesignRoutes = require('../routes/system/templateDesign.routes');
 
 router.use('/users', userRoutes);
+router.use('/search', searchRoutes);
 router.use('/newandevents', newandeventRoutes);
 router.use('/products', productRoutes);
 router.use('/template-design', templateDesignRoutes);
