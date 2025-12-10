@@ -3,6 +3,7 @@ const search = require('../../models/system/search.models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { responseSuccess } = require('../../common/helpers/responsive.helper');
+const { htmlToPlainText } = require('../../utils/filter');
 
 const buildQuery = (where) => {
     let query = {};
