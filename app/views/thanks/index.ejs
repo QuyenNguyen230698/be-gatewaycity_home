@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- === BẮT BUỘC để chặn Gmail Dark Mode === -->
+  <meta name="color-scheme" content="light only">
+  <meta name="supported-color-schemes" content="light only">
+  <style type="text/css">
+    /* Chặn hoàn toàn Dark Mode của Gmail */
+    u + .body .darkmode-ignore { background-color: #ffffff !important; }
+    @media (prefers-color-scheme: dark) {
+      u + .body .darkmode-ignore { background-color: #ffffff !important; color: #222222 !important; }
+      u + .body .darkmode-ignore * { color: inherit !important; }
+    }
+  </style>
+</head>
+
+<body style="margin:0; padding:0; background-color:#f4f4f4;">
+  <!-- Gmail sẽ thêm class .body vào đây, nên dùng trick u + .body -->
+  <div class="darkmode-ignore" style="
+    background-color: #ffffff !important;
+    color: #222222 !important;
+    font-family: 'Montserrat', 'Arial Nova', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.15px;
+    margin: 0;
+    padding: 10px 0;
+    min-height: 80vh;
+  ">
+    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style=" margin: 0 auto; background:#ffffff;">
+      <tr>
+        <td style="padding: 0 10px;">
+          <div style="border: 2px solid #000000; border-radius: 12px; overflow: hidden; background:#ffffff;">
+            
+            <!-- Header Logo -->
+            <div style="background:#000000; text-align:center; padding:20px 0;">
+              <img src="https://res.cloudinary.com/dpcigceaq/image/upload/v1765281506/Media%20Gateway%20City/iiingth1w5eatij5cju0.svg" 
+                   alt="Logo" width="180" height="60" 
+                   style="display:block; margin:0 auto; border:0; outline:none;" />
+            </div>
+
+            <!-- Nội dung chính -->
+            <div style="padding: 24px 20px; font-size: 15px; background:#ffffff; color:#222222;">
+              <p style="margin:0 0 16px;">Dear Team,</p>
+              <p style="margin:0 0 16px;">
+                Chúng ta vừa nhận được thông tin từ một khách hàng mới. Dưới đây là chi tiết:
+              </p>
+
+                            <% if (name && name.trim()) { %>
+                <p style="margin:0 0 12px;">
+                  <strong style="color:#555;">Tên khách hàng:</strong> 
+                  <span style="color:#e74c3c; font-weight:bold;"><%- name %></span>
+                </p>
+              <% } %>
+
+              <% if (email && email.trim()) { %>
+                <p style="margin:0 0 12px;">
+                  <strong style="color:#555;">Email:</strong> <%- email %>
+                </p>
+              <% } %>
+
+              <% if (phoneNumber && phoneNumber.trim()) { %>
+                <p style="margin:0 0 12px;">
+                  <strong style="color:#555;">Số điện thoại:</strong> <%- phoneNumber %>
+                </p>
+              <% } %>
+
+              <% if (note && note.trim()) { %>
+                <p style="margin:0 0 12px;">
+                  <strong style="color:#555;">Ghi chú:</strong> 
+                  <span style="word-break:break-word;"><%- note %></span>
+                </p>
+              <% } %>
+
+              <% if (urlRegist && urlRegist.trim()) { %>
+                <p style="margin:0 0 12px;">
+                  <strong style="color:#555;">URL đăng ký:</strong><br>
+                  <a href="<%- urlRegist %>" style="color:#0066cc; word-break:break-all;"><%- urlRegist %></a>
+                </p>
+              <% } %>
+
+              <p style="margin:20px 0 0;">
+                Vui lòng liên hệ khách hàng sớm nhất có thể để hỗ trợ!
+              </p>
+              <p style="margin:20px 0 0;">
+                Trân trọng,<br>
+                <strong>Hệ thống thông báo tự động</strong>
+              </p>
+            </div>
+
+            <!-- Footer -->
+            <div style="background:#222222; color:#ffffff; padding:30px 20px; text-align:center; font-size:14px;">
+              <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                <tr>
+                  <td style="padding:0 8px;">
+                    <a href="https://tranduc.com" target="_blank">
+                      <img src="https://foxmqob.stripocdn.email/content/assets/img/other-icons/logo-white/globe-logo-white.png" width="32" height="32" alt="Website" style="display:block;border:0;">
+                    </a>
+                  </td>
+                  <td style="padding:0 8px;">
+                    <a href="https://www.facebook.com/Tranduccom/" target="_blank">
+                      <img src="https://foxmqob.stripocdn.email/content/assets/img/social-icons/logo-white/facebook-logo-white.png" width="32" height="32" alt="Facebook" style="display:block;border:0;">
+                    </a>
+                  </td>
+                  <td style="padding:0 8px;">
+                    <a href="https://www.instagram.com/tranduccorp/" target="_blank">
+                      <img src="https://foxmqob.stripocdn.email/content/assets/img/social-icons/logo-white/instagram-logo-white.png" width="32" height="32" alt="Instagram" style="display:block;border:0;">
+                    </a>
+                  </td>
+                  <td style="padding:0 8px;">
+                    <a href="https://www.youtube.com/@tranduccorp" target="_blank">
+                      <img src="https://foxmqob.stripocdn.email/content/assets/img/social-icons/logo-white/youtube-logo-white.png" width="32" height="32" alt="Youtube" style="display:block;border:0;">
+                    </a>
+                  </td>
+                  <td style="padding:0 8px;">
+                    <a href="https://www.linkedin.com/company/tranduccorp/" target="_blank">
+                      <img src="https://foxmqob.stripocdn.email/content/assets/img/social-icons/logo-white/linkedin-logo-white.png" width="32" height="32" alt="LinkedIn" style="display:block;border:0;">
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <p style="margin:20px 0 0; font-size:12px; color:#cccccc;">
+                © 2025 Gateway City Homes. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
