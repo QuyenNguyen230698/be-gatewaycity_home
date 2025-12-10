@@ -1,4 +1,5 @@
 const Newandevent = require('../../models/system/newandevent.model');
+const search = require('../../models/system/search.models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { responseSuccess } = require('../../common/helpers/responsive.helper');
@@ -76,6 +77,15 @@ createOrUpdateNewandevent: async (_id, title, description, src, content, type) =
         { _id },
         { title, description, src, content, type, updatedAt: Date.now() }
       );
+      findNews = await Newandevent.findOne({ _id });
+      await search.updateOne(
+        { _idRef: _id },
+        { slug: "tin-tuc-va-su-kien/" + findNews.slug,
+          name: "Tin tức và sự kiện",
+          child: findNews.title,
+          description: findNews.title + " " + htmlToPlainText(findNews.description)
+         }
+      );
 
       return responseSuccess(`New and event "${title}" updated successfully`);
     } else {
@@ -88,6 +98,13 @@ createOrUpdateNewandevent: async (_id, title, description, src, content, type) =
         type,
       });
       await newNewandevent.save();
+      await search.create({
+        _idRef: newNewandevent._id,
+        slug: "tin-tuc-va-su-kien/" + newNewandevent.slug,
+        name: "Tin tức và sự kiện",
+        child: newNewandevent.title,
+        description: newNewandevent.title + " " + htmlToPlainText(newNewandevent.description)
+      });
 
       return responseSuccess(`New and event "${title}" created successfully`);
     }
@@ -103,6 +120,7 @@ createOrUpdateNewandevent: async (_id, title, description, src, content, type) =
   deleteNewandevent: async (_id) => {
     try {
       await Newandevent.findOneAndDelete({ _id });
+      await search.findOneAndDelete({ _idRef: _id });
     
       return responseSuccess(`New and event deleted successfully`);
     } catch (error) {

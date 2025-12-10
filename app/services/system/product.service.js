@@ -1,4 +1,5 @@
 const Product = require('../../models/system/product.model');
+const search = require('../../models/system/search.models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { responseSuccess } = require('../../common/helpers/responsive.helper');
@@ -76,6 +77,14 @@ createProduct: async (_id, title, features, images, blueprint, floor1, floor2, f
         { _id },
         { title, features, images, blueprint, floor1, floor2, floor3, updatedAt: Date.now() }
       );
+      await search.updateOne(
+        { _idRef: _id },
+        { slug: "san-pham/" + findProduct.slug,
+          name: "Sản phẩm",
+          child: findProduct.title,
+          description: findProduct.title + " " + htmlToPlainText(findProduct.description)
+         }
+      );
 
       return responseSuccess(`Product "${title}" updated successfully`);
     } else {
@@ -90,6 +99,13 @@ createProduct: async (_id, title, features, images, blueprint, floor1, floor2, f
         floor3,
       });
       await newProduct.save();
+      await search.create({
+        _idRef: newProduct._id,
+        slug: "san-pham/" + newProduct.slug,
+        name: "Sản phẩm",
+        child: newProduct.title,
+        description: newProduct.title + " " + htmlToPlainText(newProduct.description)
+      });
 
       return responseSuccess(`Product "${title}" created successfully`);
     }
@@ -105,6 +121,7 @@ createProduct: async (_id, title, features, images, blueprint, floor1, floor2, f
   deleteProduct: async (_id) => {
     try {
       await Product.findOneAndDelete({ _id });
+      await search.findOneAndDelete({ _idRef: _id });
     
       return responseSuccess(`Product deleted successfully`);
     } catch (error) {

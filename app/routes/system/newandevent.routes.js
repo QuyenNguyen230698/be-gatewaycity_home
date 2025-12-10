@@ -6,7 +6,7 @@ const { checkAdminRole } = require('../../middlewares/checkRole.middleware');
 const router = express.Router();
 
 // Admin Only
-router.get("/list", newandeventAdminController.getNewandevent);
+router.post("/list", newandeventAdminController.getNewandevent);
 router.post("/createorupdate", newandeventAdminController.createNewandevent);
 router.delete("/delete", newandeventAdminController.deleteNewandevent);
 router.post("/update-status", newandeventAdminController.updateStatusNewandevent);
