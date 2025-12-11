@@ -136,7 +136,6 @@ const productServices = {
     getProducts: async (skip, take, where, search, sorted, requiresCounts) => {
         try {
             let query = buildQuery(where);
-            query = { $and: [query, { status: 'published' }] };
     
             if (search.length > 0) {
                 const searchQuery = buildSearchQuery(search);
