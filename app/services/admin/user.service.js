@@ -1,7 +1,6 @@
 const User = require("../../models/admin/user.model.js");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const emailQueue = require("../../configs/redis.js");
 const Email = require("../../models/send-email/email.models.js");
 const { responseSuccess } = require('../../common/helpers/responsive.helper.js');
 const { ACCESS_TOKEN_SECRET, ACCESS_TOKEN_EXPIRES } = require('../../common/constant/app.constant.js');
@@ -73,43 +72,6 @@ const userServices = {
       // Create user
       const user = new User({ username, email, password: hashedPassword, phoneNumber });
       await user.save();
-  
-      // Chuẩn bị danh sách email cần gửi
-      let emailRecords = [];
-      
-      for (const recipient of [email]) { // Chuyển email thành mảng để dễ xử lý nhiều email
-        const newEmail = new Email({
-          to: recipient,
-          subject: "Welcome to our Theater",
-          templateData: { name: username, path: "thanks/index.ejs" },
-          status: "pending",
-          isOpen: false, // Mặc định chưa mở email
-        });
-  
-        // Lưu vào DB
-        const savedEmail = await newEmail.save();
-        emailRecords.push(savedEmail);
-
-        // ✅ Thêm tracking pixel vào templateData
-        const trackingUrl = `http://14.225.204.233:4000/api/email/track-email/${savedEmail._id}`;
-        const updatedTemplateData = { 
-          name: username, // Đảm bảo có name
-          path: "thanks/index.ejs", // Đảm bảo có path
-          ...(savedEmail.templateData || {}), 
-          trackingUrl 
-        };
-        console.log("📬 Data pushed to queue:", JSON.stringify(updatedTemplateData, null, 2));
-  
-      // ✅ Thêm vào hàng đợi gửi email
-      await emailQueue.add({
-        emailId: savedEmail._id,
-        to: recipient,
-        subject: "Welcome to our Theater",
-        templateData: updatedTemplateData, // Gửi template có tracking pixel
-      });
-      }
-  
-      console.log(`📧 Email(s) queued for ${emailRecords.length} recipient(s)`);
   
       return responseSuccess(`User ${username} created successfully`);
     } catch (error) {
