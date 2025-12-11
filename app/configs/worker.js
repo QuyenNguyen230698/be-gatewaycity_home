@@ -1,8 +1,8 @@
 require("dotenv").config();
-const sendEmail = require("./mailer");
-const emailQueue = require("./redis");
-const Email = require("../models/send-email/email.models");
-const connectDB = require("./database"); // Import kết nối MongoDB
+const sendEmail = require("./mailer.js");
+const emailQueue = require("./redis.js");
+const Email = require("../models/send-email/email.models.js");
+const connectDB = require("./database.js"); // Import kết nối MongoDB
 
 // 🚀 Kết nối MongoDB trước khi chạy worker
 connectDB()
