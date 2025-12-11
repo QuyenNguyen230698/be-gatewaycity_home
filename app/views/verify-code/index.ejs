@@ -1,1 +1,16 @@
-<!-- check now -->
+cat > .env << 'EOF'
+PORT=4000
+MONGO_URI=mongodb://gatewaycity_user:gwchwebdev2025@127.0.0.1:27017/gatewaycity_db?authSource=gatewaycity_db
+NODE_ENV=production
+JWT_SECRET=movie_2025_api_jwt_secret_token
+REFRESH_TOKEN_SECRET=refresh_movie_2025_api_jwt_secret_token
+TOKEN_EXPIRATION=30m
+REFRESH_TOKEN_EXPIRATION=7d
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=gatewaycityvinhlong@gmail.com
+EMAIL_PASS=phxekquafbvdhqwl
+CLOUDINARY_CLOUD_NAME=dpcigceaq
+CLOUDINARY_API_KEY=451766478914674
+CLOUDINARY_API_SECRET=gbmCt3iAWMwwEMjAYgmKiIdYVug
+EOF
