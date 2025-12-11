@@ -1,7 +1,7 @@
-const {quotepriceServices} = require("../../services/system/quoteprice.service");
-const QuotePrice = require('../../models/system/quoteprice.model');
-const Email = require("../../models/send-email/email.models");
-const sendEmail = require("../../configs/mailer");
+const {quotepriceServices} = require("../../services/system/quoteprice.service.js");
+const QuotePrice = require('../../models/system/quoteprice.model.js');
+const Email = require("../../models/send-email/email.models.js");
+const sendEmail = require("../../configs/mailer.js");
 
 const quotepriceController = {
     getQuotePrice: async (req, res) => {

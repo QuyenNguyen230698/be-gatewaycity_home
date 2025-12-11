@@ -1,9 +1,9 @@
-const Newandevent = require('../../models/system/newandevent.model');
-const search = require('../../models/system/search.models');
+const Newandevent = require('../../models/system/newandevent.model.js');
+const search = require('../../models/system/search.models.js');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { responseSuccess } = require('../../common/helpers/responsive.helper');
-const { htmlToPlainText } = require('../../utils/filter');
+const { responseSuccess } = require('../../common/helpers/responsive.helper.js');
+const { htmlToPlainText } = require('../../utils/filter.js');
 
 const buildQuery = (where) => {
     let query = {};

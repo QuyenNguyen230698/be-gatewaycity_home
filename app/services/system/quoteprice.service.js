@@ -1,5 +1,5 @@
-const QuotePrice = require('../../models/system/quoteprice.model');
-const { responseSuccess } = require('../../common/helpers/responsive.helper');
+const QuotePrice = require('../../models/system/quoteprice.model.js');
+const { responseSuccess } = require('../../common/helpers/responsive.helper.js');
 
 const quotepriceServices = {
     getQuotePrice: async (req) => {

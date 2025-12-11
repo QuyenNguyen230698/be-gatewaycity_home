@@ -1,7 +1,7 @@
-const {productServices, productAdminServices} = require("../../services/system/product.service");
-const Product = require('../../models/system/product.model');
-const { BadRequestException } = require('../../common/helpers/error.helper');
-const { ACCESS_TOKEN_SECRET } = require('../../common/constant/app.constant');
+const {productServices, productAdminServices} = require("../../services/system/product.service.js");
+const Product = require('../../models/system/product.model.js');
+const { BadRequestException } = require('../../common/helpers/error.helper.js');
+const { ACCESS_TOKEN_SECRET } = require('../../common/constant/app.constant.js');
 
 const productAdminController = {
 

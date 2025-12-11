@@ -1,5 +1,5 @@
 
-const search = require('../../models/system/search.models');
+const search = require('../../models/system/search.models.js');
 
 const getDataSearch = async (query) => {
     try {

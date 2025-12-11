@@ -1,10 +1,10 @@
-const User = require("../../models/admin/user.model");
+const User = require("../../models/admin/user.model.js");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const emailQueue = require("../../configs/redis");
-const Email = require("../../models/send-email/email.models");
-const { responseSuccess } = require('../../common/helpers/responsive.helper');
-const { ACCESS_TOKEN_SECRET, ACCESS_TOKEN_EXPIRES } = require('../../common/constant/app.constant');
+const emailQueue = require("../../configs/redis.js");
+const Email = require("../../models/send-email/email.models.js");
+const { responseSuccess } = require('../../common/helpers/responsive.helper.js');
+const { ACCESS_TOKEN_SECRET, ACCESS_TOKEN_EXPIRES } = require('../../common/constant/app.constant.js');
 
 const buildQuery = (where) => {
     let query = {};

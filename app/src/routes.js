@@ -4,15 +4,15 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../common/swagger/init.swagger.js');
 
 
-const userRoutes = require('../routes/admin/user.routes');
-const searchRoutes = require('../routes/system/search.routes');
-const productRoutes = require('../routes/system/product.routes');
-const newandeventRoutes = require('../routes/system/newandevent.routes');
-const quotepriceRoutes = require('../routes/system/quoteprice.routes');
-const cloudinaryRoutes = require('../routes/cloudinary/cloudinary.routes');
-const emailRoutes = require('../routes/send-email/email.routes');
-const otpRoutes = require('../routes/send-email/otp.routes');
-const templateDesignRoutes = require('../routes/system/templateDesign.routes');
+const userRoutes = require('../routes/admin/user.routes.js');
+const searchRoutes = require('../routes/system/search.routes.js');
+const productRoutes = require('../routes/system/product.routes.js');
+const newandeventRoutes = require('../routes/system/newandevent.routes.js');
+const quotepriceRoutes = require('../routes/system/quoteprice.routes.js');
+const cloudinaryRoutes = require('../routes/cloudinary/cloudinary.routes.js');
+const emailRoutes = require('../routes/send-email/email.routes.js');
+const otpRoutes = require('../routes/send-email/otp.routes.js');
+const templateDesignRoutes = require('../routes/system/templateDesign.routes.js');
 
 router.use('/users', userRoutes);
 router.use('/search', searchRoutes);

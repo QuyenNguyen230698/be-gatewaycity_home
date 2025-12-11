@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const templateDesignController = require('../../controllers/system/templateDesign.controller');
+const templateDesignController = require('../../controllers/system/templateDesign.controller.js');
 
 router.post('/grid', templateDesignController.getGridData);
 router.get('/list', templateDesignController.getTemplateDesign);

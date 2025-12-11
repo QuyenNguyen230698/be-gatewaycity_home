@@ -1,8 +1,8 @@
-const userServices = require("../../services/admin/user.service");
-const User = require('../../models/admin/user.model');
-const { BadRequestException } = require('../../common/helpers/error.helper');
+const userServices = require("../../services/admin/user.service.js");
+const User = require('../../models/admin/user.model.js');
+const { BadRequestException } = require('../../common/helpers/error.helper.js');
 const jwt = require('jsonwebtoken');
-const { ACCESS_TOKEN_SECRET } = require('../../common/constant/app.constant');
+const { ACCESS_TOKEN_SECRET } = require('../../common/constant/app.constant.js');
 
 const userController = {
   checkRun: async (req, res) => {

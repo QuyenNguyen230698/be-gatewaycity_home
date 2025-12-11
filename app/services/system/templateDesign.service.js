@@ -1,4 +1,4 @@
-const templateDesign = require("../../models/system/templateDesignModels");
+const templateDesign = require("../../models/system/templateDesignModels.js");
 
 const buildQuery = (where) => {
     let query = {};

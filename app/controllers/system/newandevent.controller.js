@@ -1,7 +1,7 @@
-const {newandeventServices, newandeventAdminServices} = require("../../services/system/newandevent.service");
-const Newandevent = require('../../models/system/newandevent.model');
-const { BadRequestException } = require('../../common/helpers/error.helper');
-const { ACCESS_TOKEN_SECRET } = require('../../common/constant/app.constant');
+const {newandeventServices, newandeventAdminServices} = require("../../services/system/newandevent.service.js");
+const Newandevent = require('../../models/system/newandevent.model.js');
+const { BadRequestException } = require('../../common/helpers/error.helper.js');
+const { ACCESS_TOKEN_SECRET } = require('../../common/constant/app.constant.js');
 
 const newandeventAdminController = {
 

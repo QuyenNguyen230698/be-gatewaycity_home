@@ -1,9 +1,9 @@
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 const dotenv = require('dotenv');
-const { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } = require('../../common/constant/app.constant');
-const Cloudinary = require('../../models/cloudinary/cloudinary.model'); // Assuming the Cloudinary model is defined in this file
-const { responseSuccess } = require('../../common/helpers/responsive.helper');
+const { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } = require('../../common/constant/app.constant.js');
+const Cloudinary = require('../../models/cloudinary/cloudinary.model.js'); // Assuming the Cloudinary model is defined in this file
+const { responseSuccess } = require('../../common/helpers/responsive.helper.js');
 
 dotenv.config();
 

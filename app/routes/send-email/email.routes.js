@@ -2,9 +2,9 @@ const express = require("express");
 const axios = require("axios");
 const geoip = require("geoip-lite");
 const router = express.Router();
-const emailQueue = require("../../configs/redis");
-const Email = require("../../models/send-email/email.models");
-const sendEmail = require("../../configs/mailer");
+const emailQueue = require("../../configs/redis.js");
+const Email = require("../../models/send-email/email.models.js");
+const sendEmail = require("../../configs/mailer.js");
 
 // ✅ Route hiển thị trang "Thanks"
 router.get("/thanks", (req, res) => {

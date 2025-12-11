@@ -1,7 +1,7 @@
 const express = require("express");
-const userController = require("../../controllers/admin/user.controller");
-const { authenticateJWT } = require("../../middlewares/authMiddleware");
-const { checkAdminRole } = require('../../middlewares/checkRole.middleware');
+const userController = require("../../controllers/admin/user.controller.js");
+const { authenticateJWT } = require("../../middlewares/authMiddleware.js");
+const { checkAdminRole } = require('../../middlewares/checkRole.middleware.js');
 
 const router = express.Router();
 

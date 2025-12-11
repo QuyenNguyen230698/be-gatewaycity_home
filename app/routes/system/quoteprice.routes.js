@@ -1,7 +1,7 @@
 const express = require("express");
-const { quotepriceController } = require("../../controllers/system/quoteprice.controller");
-const { authenticateJWT } = require("../../middlewares/authMiddleware");
-const { checkAdminRole } = require('../../middlewares/checkRole.middleware');
+const { quotepriceController } = require("../../controllers/system/quoteprice.controller.js");
+const { authenticateJWT } = require("../../middlewares/authMiddleware.js");
+const { checkAdminRole } = require('../../middlewares/checkRole.middleware.js');
 
 const router = express.Router();
 

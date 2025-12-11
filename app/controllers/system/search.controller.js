@@ -1,6 +1,6 @@
 //#region AnhLD Import các service cần thiết
 const { getDataSearch
-} = require("../../services/system/search.service");
+} = require("../../services/system/search.service.js");
 //#endregion
 
 const getListSearch = async (req, res) => {

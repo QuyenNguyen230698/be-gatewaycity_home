@@ -4,7 +4,7 @@ const {
   getImage, 
   uploadImage, 
   deleteImage 
-} = require('../../controllers/cloudinary/cloudinary.controller');
+} = require('../../controllers/cloudinary/cloudinary.controller.js');
 
 const router = express.Router();
 

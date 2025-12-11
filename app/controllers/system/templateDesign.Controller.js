@@ -1,4 +1,4 @@
-const { getListTemplate, getGridDataService, handleCreateOrUpdateTemplateDesign,handleDeleteTemplateDesign } = require("../../services/system/templateDesign.service");
+const { getListTemplate, getGridDataService, handleCreateOrUpdateTemplateDesign,handleDeleteTemplateDesign } = require("../../services/system/templateDesign.service.js");
 
 const getGridData = async (req, res) => {
   try {

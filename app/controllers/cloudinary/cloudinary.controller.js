@@ -1,4 +1,4 @@
-const { getFormImage, uploadSingleToCloudinary, deleteFromCloudinary } = require('../../services/cloudinary/cloudinary.service');
+const { getFormImage, uploadSingleToCloudinary, deleteFromCloudinary } = require('../../services/cloudinary/cloudinary.service.js');
 
 const getImage = async (req, res) => {
     try {

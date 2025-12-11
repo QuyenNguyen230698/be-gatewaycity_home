@@ -15,7 +15,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 // Routes
-const routes = require("./src/routes");
+const routes = require("./src/routes.js");
 app.use("/api", routes);
 
 // Đảm bảo Express sử dụng đúng thư mục views
