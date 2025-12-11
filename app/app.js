@@ -11,7 +11,32 @@ connectDB();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://admin.gatewaycityvinhlong.vn",
+      "https://gatewaycityvinhlong.vn",
+      "https://www.gatewaycityvinhlong.vn",
+      // Nếu bạn dev local thì thêm tạm cái này (sau này xóa cũng được)
+      "http://localhost:4000",
+      "http://127.0.0.1:4000",
+    ],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: [
+      "Origin",
+      "X-Requested-With",
+      "Content-Type",
+      "Accept",
+      "Authorization",
+      "Cache-Control",
+    ],
+    credentials: true, // rất quan trọng nếu bạn dùng cookie/session/JWT trong header
+  })
+);
+
+// Xử lý pre-flight OPTIONS cho tất cả route (bắt buộc có)
+app.options("*", cors());
+
 app.use(morgan("dev"));
 
 // Routes
