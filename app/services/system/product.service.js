@@ -78,6 +78,7 @@ createProduct: async (_id, title, features, images, blueprint, floor1, floor2, f
         { _id },
         { title, features, images, blueprint, floor1, floor2, floor3, floor4, updatedAt: Date.now() }
       );
+      findProduct = await Product.findOne({ _id });
       await search.updateOne(
         { _idRef: _id },
         { slug: "san-pham/" + findProduct.slug,
