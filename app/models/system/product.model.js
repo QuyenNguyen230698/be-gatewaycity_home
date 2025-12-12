@@ -17,7 +17,8 @@ const ProductsSchema = new mongoose.Schema(
     blueprint: { type: Array },
     floor1: { type: Object },
     floor2: { type: Object },
-    floor3: { type: Object }
+    floor3: { type: Object },
+    floor4: { type: Object },
   },
   { timestamps: true }
 );

@@ -23,8 +23,8 @@ const productAdminController = {
 
   createProduct: async (req, res) => {
     try {
-      const { _id, title, features, images, blueprint, floor1, floor2, floor3 } = req.body;
-      const productCreated = await productAdminServices.createProduct(_id, title, features, images, blueprint, floor1, floor2, floor3);
+      const { _id, title, features, images, blueprint, floor1, floor2, floor3, floor4 } = req.body;
+      const productCreated = await productAdminServices.createProduct(_id, title, features, images, blueprint, floor1, floor2, floor3, floor4);
       res.status(200).json({ result: true, message: 'Product created successfully', data: productCreated });
     } catch (error) {
       console.error('Error creating Product:', error);

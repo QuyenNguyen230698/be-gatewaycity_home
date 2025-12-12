@@ -64,7 +64,7 @@ const productAdminServices = {
     }
   },
 
-createProduct: async (_id, title, features, images, blueprint, floor1, floor2, floor3) => {
+createProduct: async (_id, title, features, images, blueprint, floor1, floor2, floor3, floor4) => {
   try {
     // Nếu có _id → cập nhật, không có _id → tạo mới
     if (_id) {
@@ -76,7 +76,7 @@ createProduct: async (_id, title, features, images, blueprint, floor1, floor2, f
 
       await Product.updateOne(
         { _id },
-        { title, features, images, blueprint, floor1, floor2, floor3, updatedAt: Date.now() }
+        { title, features, images, blueprint, floor1, floor2, floor3, floor4, updatedAt: Date.now() }
       );
       await search.updateOne(
         { _idRef: _id },
@@ -98,6 +98,7 @@ createProduct: async (_id, title, features, images, blueprint, floor1, floor2, f
         floor1,
         floor2,
         floor3,
+        floor4,
       });
       await newProduct.save();
       await search.create({
