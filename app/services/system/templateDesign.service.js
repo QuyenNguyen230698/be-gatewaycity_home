@@ -1,20 +1,5 @@
 const templateDesign = require("../../models/system/templateDesignModels.js");
-
-const buildQuery = (where) => {
-    let query = {};
-    Object.keys(where).forEach(key => {
-        query[key] = where[key];
-    });
-    return query;
-};
-
-const buildSearchQuery = (search) => {
-    let searchQuery = {};
-    search.forEach(item => {
-        searchQuery[item.name] = { $regex: item.value, $options: 'i' };
-    });
-    return searchQuery;
-};
+const { buildQuery, buildSearchQuery } = require('../../utils/queryBuilder.js');
 
 const getGridDataService = async (skip, take, where, search, sorted, requiresCounts) => {
     try {

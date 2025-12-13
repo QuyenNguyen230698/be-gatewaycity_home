@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } = require('../../common/constant/app.constant.js');
 const Cloudinary = require('../../models/cloudinary/cloudinary.model.js'); // Assuming the Cloudinary model is defined in this file
 const { responseSuccess } = require('../../common/helpers/responsive.helper.js');
+const { buildQuery, buildSearchQuery } = require('../../utils/queryBuilder.js');
 
 dotenv.config();
 
@@ -12,22 +13,6 @@ cloudinary.config({
   api_key: CLOUDINARY_API_KEY,
   api_secret: CLOUDINARY_API_SECRET,
 });
-
-const buildQuery = (where) => {
-    let query = {};
-    Object.keys(where).forEach(key => {
-        query[key] = where[key];
-    });
-    return query;
-};
-
-const buildSearchQuery = (search) => {
-    let searchQuery = {};
-    search.forEach(item => {
-        searchQuery[item.name] = { $regex: item.value, $options: 'i' };
-    });
-    return searchQuery;
-};
 
 const getFormImage = async (skip, take, where, search, sorted, requiresCounts) => {
     try {

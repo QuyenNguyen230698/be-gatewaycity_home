@@ -4,22 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { responseSuccess } = require('../../common/helpers/responsive.helper.js');
 const { htmlToPlainText } = require('../../utils/filter.js');
-
-const buildQuery = (where) => {
-    let query = {};
-    Object.keys(where).forEach(key => {
-        query[key] = where[key];
-    });
-    return query;
-};
-
-const buildSearchQuery = (search) => {
-    let searchQuery = {};
-    search.forEach(item => {
-        searchQuery[item.name] = { $regex: item.value, $options: 'i' };
-    });
-    return searchQuery;
-};
+const { buildQuery, buildSearchQuery } = require('../../utils/queryBuilder.js');
 
 const newandeventAdminServices = {
   getNewandevent: async (skip, take, where, search, sorted, requiresCounts) => {

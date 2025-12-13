@@ -12,7 +12,7 @@ router.delete("/delete", newandeventAdminController.deleteNewandevent);
 router.post("/update-status", newandeventAdminController.updateStatusNewandevent);
 
 // Landing Page Only
-router.get("/", newandeventController.getNewandevent);
+router.post("/", newandeventController.getNewandevent);
 router.post("/detail", newandeventController.getNewandeventDetail);
 router.post("/find-new-event", newandeventController.findNewEvent)
 

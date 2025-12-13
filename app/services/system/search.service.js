@@ -1,5 +1,6 @@
 
 const search = require('../../models/system/search.models.js');
+const { buildQuery, buildSearchQuery } = require('../../utils/queryBuilder.js');
 
 const getDataSearch = async (query) => {
     try {
