@@ -6,7 +6,7 @@ const { checkAdminRole } = require('../../middlewares/checkRole.middleware.js');
 const router = express.Router();
 
 // Admin Only
-// router.get("/list", authenticateJWT, checkAdminRole, quotepriceAdminController.getQuotePrice);
+router.post("/list", quotepriceController.getQuotePrice);
 // router.post("/create", authenticateJWT, checkAdminRole, quotepriceAdminController.createQuotePrice);
 // router.post("/update", authenticateJWT, checkAdminRole, quotepriceAdminController.updateQuotePrice);
 // router.post("/delete", authenticateJWT, checkAdminRole, quotepriceAdminController.deleteQuotePrice);

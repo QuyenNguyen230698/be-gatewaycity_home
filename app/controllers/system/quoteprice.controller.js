@@ -6,14 +6,17 @@ const sendEmail = require("../../configs/mailer.js");
 const quotepriceController = {
     getQuotePrice: async (req, res) => {
         try {
-          const quotepriceDataList = await quotepriceServices.getQuotePrice(req);
+          const { requiresCounts = false, skip = 0, take = 10, where = [], search = [], sorted = [] } = req.body;
+    
+          const { quotepriceDataList, totalRecords } = await quotepriceServices.getQuotePrice(skip, take, where, search, sorted, requiresCounts);
     
           res.status(200).json({
-            result: quotepriceDataList
+            result: quotepriceDataList,
+            count: totalRecords,
           });
         } catch (error) {
-          console.error('Error fetching quoteprice data:', error);
-          res.status(500).json({ message: 'Error fetching quoteprice data', error: error.message });
+          console.error('Error fetching movie data:', error);
+          res.status(500).json({ message: 'Error fetching movie data', error: error.message });
         }
       },
     createQuotePrice: async (req, res) => {
