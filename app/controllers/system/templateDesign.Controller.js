@@ -49,10 +49,10 @@ const deleteTemplateDesign = async (req, res) => {
     const templateDesignData = await handleDeleteTemplateDesign(_id);
     return res.status(200).json({result:true,data:templateDesignData});
   } catch (error) {
-    console.error("Error saving template Design data:", error);
+    console.error("Error deleting template design data:", error);
     res
       .status(500)
-      .json({ message: "Failed to save template Design data", error: error.message });
+      .json({ message: "Failed to delete template design data", error: error.message });
   }
 }
 

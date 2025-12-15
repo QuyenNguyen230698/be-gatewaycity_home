@@ -1,5 +1,6 @@
 const templateDesign = require("../../models/system/templateDesignModels.js");
 const { buildQuery, buildSearchQuery } = require('../../utils/queryBuilder.js');
+const { responseSuccess } = require('../../common/helpers/responsive.helper.js');
 
 const getGridDataService = async (skip, take, where, search, sorted, requiresCounts) => {
     try {
@@ -80,8 +81,8 @@ const handleCreateOrUpdateTemplateDesign = async (_id, name, design, type, statu
 
 const handleDeleteTemplateDesign = async (_id) => {
     try {
-        const result = await templateDesign.findOneAndDelete(_id);
-        return result;
+        await templateDesign.findOneAndDelete({_id: _id});
+        return responseSuccess(`Template design deleted successfully`);
     } catch (error) {
         console.error("Error deleting templateDesign data:", error);
         throw new Error("Failed to delete templateDesign data");
